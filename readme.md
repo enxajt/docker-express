@@ -47,8 +47,6 @@ services:
       - .:/usr/src/docker-express
       - /usr/src/docker-express/node_modules
 ```
-
-*NOW*
 curl https://www.gitignore.io/api/node > .gitignore
 
 # how to use
