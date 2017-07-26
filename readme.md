@@ -5,14 +5,21 @@ mkdir docker-express && cd docker-express
 docker run --rm -v "$PWD":/usr/src/docker-express -w /usr/src/docker-express node:latest npm init -y
 ## node_modules/
 docker run -it -v "$PWD":/usr/src/docker-express -w /usr/src/docker-express node:latest /bin/sh
+
 npm install --save-dev express-generator -g
+
 python -c "print open('package.json').read().replace('exit 1\"','exit 1\",\n    \"express\": \"express\"')" > test 
+
 diff package.json test
 
 mv test package.json
+
 yes | npm run express . -f
+
 npm shrinkwrap --dev
+
 npm install
+
 exit
 sudo chown -R enxajt:enxajt * && chmod 664 app.js npm-shrinkwrap.json package.json
 nvim Dockerfile
